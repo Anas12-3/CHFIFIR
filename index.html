@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>chefar pop</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell">
+<header><div class="brand">chefar <span>pop</span></div><div class="edition">Small games, sharp minds</div></header>
+<nav class="journey" aria-label="Level progress">
+<div class="journey-heading"><strong id="journeyTitle">Your journey · Level 1 / 10</strong><span id="journeyCount">0 cleared · 10 remaining</span></div>
+<ol class="level-track" id="levelTrack"></ol>
+<p class="journey-key">Lime = cleared · Yellow = current · White = ahead. New game starts a fresh journey.</p>
+</nav>
+<div class="audio-controls" aria-label="Sound settings">
+<button class="audio-toggle" id="musicToggle" aria-pressed="true">♫ Music: on</button>
+<button class="audio-toggle" id="sfxToggle" aria-pressed="true">✦ SFX: on</button>
+<span class="audio-hint" id="audioHint">Sound starts with your first click or key press.</span>
+</div>
+<main>
+<section>
+<div class="eyebrow">The daily mind reset</div>
+<h1>Less noise.<br>More <em>focus.</em></h1>
+<p class="intro">A little space to put your memory to work. Flip the cards, find the pairs, and make every second count.</p>
+<div class="rules"><div class="rule-icon">↗</div><div><strong>Simple to play. Hard to put down.</strong>Memorize the opening preview, then match the pairs. Every two consecutive matches add 3 seconds. A mismatch costs 2 seconds. Spend earned points on a little help.</div></div>
+</section>
+<section class="game" aria-label="Memory matching game">
+<div class="stats">
+<div class="stat"><span>Level</span><b id="level">01</b></div>
+<div class="stat"><span>Time left</span><b id="time">30s</b></div>
+<div class="stat"><span>Score</span><b id="score">000</b></div>
+</div>
+<div class="timer-track"><div class="timer-fill" id="timerFill"></div></div>
+<div class="round-meta"><span id="phase">Memorize</span><span id="streak">Streak: 0</span></div>
+<div class="board" id="board" aria-label="Matching cards"></div>
+<div class="game-bottom"><span class="progress" id="progress">0 / 4 pairs found</span><button class="reset" id="restart">↻ &nbsp; New game</button></div>
+<p id="status" role="status" aria-live="polite">Memorize the cards before the round begins.</p>
+<div class="shop">
+<div class="shop-head"><strong>A little help</strong><span class="wallet"><span id="wallet">0</span> pts</span></div>
+<div class="powerups">
+<button class="powerup" id="shield"><strong>◈ Time shield · 150 pts</strong><small>Protect your next mismatch from the −2s penalty.</small></button>
+<button class="powerup" id="peek"><strong>✦ Reveal four · 250 pts</strong><small>Shows 2 real matching pairs (4 cards) for 2s. Timer keeps running.</small></button>
+</div>
+<p class="help-note" id="shopNote">Earn 10 points per pair + 1 point per 5 seconds left. Stage points enter your wallet when you clear the board. Purchases use wallet points, not your score. Shields expire at the end of the round.</p>
+</div>
+</section>
+</main>
+<footer><span>A little focus goes a long way.</span><span>Flip. Match. Repeat.</span></footer>
+</div>
+<dialog id="result" aria-labelledby="resultTitle"><div class="mark" aria-hidden="true">✳</div><h2 id="resultTitle"></h2><p id="resultText"></p><button class="primary" id="continue">Continue</button></dialog>
+<!-- Embedded MP3: replace this audio src to change background music. -->
+<audio id="backgroundMusic" loop preload="metadata" src="audio/bg-music.mp3"></audio>
+<audio id="loseSfx" preload="auto" src="audio/lose.mp3"></audio>
+<audio id="winSfx" preload="auto" src="audio/win.mp3"></audio>
+<audio id="flipSfx" preload="auto" src="audio/flip.wav"></audio>
+<script src="js/game.js"></script>
+</body>
+</html>
