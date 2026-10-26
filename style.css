@@ -121,49 +121,4 @@ h1 br{display:none}h1 em{padding:0 8px}.journey-heading{flex-direction:row;flex-
 .journey-key,.audio-hint{display:none}.game{height:auto;min-height:0;padding:12px}
 .board,.board.dense{flex:none;height:clamp(280px,53dvh,600px);margin:4px 0}
 .powerup small{font-size:11px}footer{margin-top:16px}.edition{display:none}
-  /* Compact layout for computer screens */
-@media (min-width: 800px) {
-  .shell {
-    max-width: 1100px;
-    padding: 12px 24px;
-  }
-
-  header { margin-bottom: 10px; }
-  .journey { margin-bottom: 8px; }
-  .audio-controls { margin-top: 8px; }
-
-  main {
-    gap: 28px;
-    padding: 16px 0;
-    align-items: start;
-  }
-
-  h1 {
-    font-size: clamp(42px, 5vw, 68px);
-    margin: 16px 0;
-  }
-
-  .intro { font-size: 14px; }
-  .rules { margin-top: 16px; padding: 12px; }
-
-  .game { padding: 14px; }
-
-  .board,
-  .board.dense {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 6px;
-  }
-
-  .board .card {
-    aspect-ratio: auto;
-    height: clamp(28px, 5vh, 46px);
-  }
-
-  .card .front { font-size: 24px; }
-  .card .back span { font-size: 22px; }
-
-  .stat { padding: 5px 9px; }
-  .stat b { font-size: 22px; }
-  .round-meta { margin-bottom: 8px; }
-}
 }
