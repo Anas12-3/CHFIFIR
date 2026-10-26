@@ -115,6 +115,27 @@ function updateStats(){
   $('shield').disabled=!shopReady()||shieldActive||wallet<COST.shield;
   $('peek').disabled=!shopReady()||wallet<COST.peek;
 }
+
+// Choose a grid that keeps every card inside the available board area.
+function fitBoard(){
+ const board=$('board'),count=board.children.length;
+ if(!count)return;
+ const w=board.clientWidth-10,h=board.clientHeight-10,gap=8;
+ let best=null;
+ for(let cols=2;cols<=Math.min(12,count);cols++){
+  const rows=Math.ceil(count/cols);
+  const cw=(w-gap*(cols-1))/cols,ch=(h-gap*(rows-1))/rows;
+  const size=Math.min(cw,ch*.94,140);
+  const score=size-(cols*rows-count)*.12;
+  if(!best||score>best.score)best={cols,rows,size,score};
+ }
+ if(!best||best.size<=0)return;
+ board.style.gridTemplateColumns=`repeat(${best.cols}, ${Math.floor(best.size)}px)`;
+ board.style.gridTemplateRows=`repeat(${best.rows}, ${Math.floor(best.size/.94)}px)`;
+ board.style.setProperty('--symbol-size',Math.max(16,Math.min(44,best.size*.43))+'px');
+}
+new ResizeObserver(fitBoard).observe($('board'));
+
 function startLevel(){
   stopTimers();if($('result').open)$('result').close();
   {['loseSfx','winSfx'].forEach(id=>{const a=$(id);a.pause();a.currentTime=0;});}
@@ -129,6 +150,7 @@ function startLevel(){
     card.addEventListener('click',()=>flip(card));$('board').append(card);
   });
   renderJourney();
+  fitBoard();
   const seconds=previewSeconds(LEVELS[level].pairs*2);
   $('status').textContent='Memorize all the cards. Your round timer starts after this '+seconds+'s preview.';
   previewDeadline=Date.now()+seconds*1000;

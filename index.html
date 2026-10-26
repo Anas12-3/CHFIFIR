@@ -5,11 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>chefar pop</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&display=swap">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 <div class="shell">
 <header><div class="brand">chefar <span>pop</span></div><div class="edition">Small games, sharp minds</div></header>
+
+
+<main>
+<section class="sidebar">
 <nav class="journey" aria-label="Level progress">
 <div class="journey-heading"><strong id="journeyTitle">Your journey · Level 1 / 10</strong><span id="journeyCount">0 cleared · 10 remaining</span></div>
 <ol class="level-track" id="levelTrack"></ol>
@@ -20,8 +24,6 @@
 <button class="audio-toggle" id="sfxToggle" aria-pressed="true">✦ SFX: on</button>
 <span class="audio-hint" id="audioHint">Sound starts with your first click or key press.</span>
 </div>
-<main>
-<section>
 <div class="eyebrow">The daily mind reset</div>
 <h1>Less noise.<br>More <em>focus.</em></h1>
 <p class="intro">A little space to put your memory to work. Flip the cards, find the pairs, and make every second count.</p>
@@ -44,7 +46,7 @@
 <button class="powerup" id="shield"><strong>◈ Time shield · 150 pts</strong><small>Protect your next mismatch from the −2s penalty.</small></button>
 <button class="powerup" id="peek"><strong>✦ Reveal four · 250 pts</strong><small>Shows 2 real matching pairs (4 cards) for 2s. Timer keeps running.</small></button>
 </div>
-<p class="help-note" id="shopNote">Earn 10 points per pair + 1 point per 5 seconds left. Stage points enter your wallet when you clear the board. Purchases use wallet points, not your score. Shields expire at the end of the round.</p>
+<details class="help-details"><summary>How points &amp; help work</summary><p class="help-note" id="shopNote">Earn 10 points per pair + 1 point per 5 seconds left. Stage points enter your wallet when you clear the board. Purchases use wallet points, not your score. Shields expire at the end of the round.</p></details>
 </div>
 </section>
 </main>
@@ -56,6 +58,6 @@
 <audio id="loseSfx" preload="auto" src="lose.mp3"></audio>
 <audio id="winSfx" preload="auto" src="win.mp3"></audio>
 <audio id="flipSfx" preload="auto" src="flip.wav"></audio>
-<script src="game.js"></script>
+<script src="game.js?v=3"></script>
 </body>
 </html>
